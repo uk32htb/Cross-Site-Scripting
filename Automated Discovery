@@ -6,3 +6,9 @@ Option 1) XSStrike :- Download and install it
                     cd XSStrike
                     pip install -r requirements.txt
                     python xsstrike.py -u "http://SERVER_IP:PORT/index.php?task=test" 
+
+
+Option 2) Brute XSS
+
+
+Option 3) XSSer
