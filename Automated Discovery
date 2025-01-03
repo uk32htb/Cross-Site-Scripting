@@ -7,6 +7,8 @@ Option 1) XSStrike :- Download and install it
                     pip install -r requirements.txt
                     python xsstrike.py -u "http://SERVER_IP:PORT/index.php?task=test" 
 
+Note :- When we want to run this, we can Network tools to get the path of th URL. Update the parameters with test 
+        e.g http://94.237.54.42:39155/?fullname=asd&username=sad&password=asd&email=safd%40dsf.com
 
 Option 2) Brute XSS
 
