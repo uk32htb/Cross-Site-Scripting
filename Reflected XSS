@@ -5,3 +5,4 @@ Note :- This is not stored, once we refresh the page the script is removed. Henc
 
 <script>alert(window.origin)</script> :- We can use this script to tets if the server is vulnerable or not. 
 <script>alert(document.cookie)</script> :- Will display the cookie
+'><script>alert(1)</script> :- java script will pop up numerical "1"
