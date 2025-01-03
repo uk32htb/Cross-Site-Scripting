@@ -1,0 +1,1 @@
+When the reflected XSS sends the input data to the back-end server through HTTP requests, DOM XSS is completely processed on the client-side through JavaScript. 
