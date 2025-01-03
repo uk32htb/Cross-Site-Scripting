@@ -1,1 +1,7 @@
-This vulnerability gets processed by the back-end server
+This vulnerability occurs when our input reaches the back-end server and gets returned to us without being filetered or sanitized. 
+
+Note :- This is not stored, once we refresh the page the script is removed. Hence, this is not persitent. 
+
+
+<script>alert(window.origin)</script> :- We can use this script to tets if the server is vulnerable or not. 
+<script>alert(document.cookie)</script> :- Will display the cookie
