@@ -1,1 +1,4 @@
 This will let the palyload get stored in the back-end database and retrieved upon visiting the page and it effects all the users who access that payload. 
+
+<script>alert(window.origin)</script> :- Command to check if it is vulnerable to XSS (This is display site URL on browser) 
+<script>alert(document.cookie)</script> :- Will display the cookie of the session. 
