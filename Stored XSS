@@ -2,3 +2,4 @@ This will let the palyload get stored in the back-end database and retrieved upo
 
 <script>alert(window.origin)</script> :- Command to check if it is vulnerable to XSS (This is display site URL on browser) 
 <script>alert(document.cookie)</script> :- Will display the cookie of the session. 
+'><script>alert(1)</script> :- java script will pop up numerical "1"
